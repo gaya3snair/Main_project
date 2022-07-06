@@ -1,0 +1,160 @@
+{% extends 'myapp/base.html' %}
+{% load static %}
+{% block title %}New User Registration{% endblock %}
+{% block body %}
+<!doctype html>
+<html lang="en">
+<head>
+</head>
+<body>
+
+<center>
+<br><br>
+	<br>
+    <h1>New User</h1>
+
+    <form name="frm" action="{% url 'user_details_add' %}" method="post">
+        {% csrf_token %}
+
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label for="fname">User Name :</label>
+			<input type="text"  class="form-control" name="fname" id="fname" placeholder="First name" required="required">
+		<br><br><br>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label for="fname">Last Name :</label>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text"  class="form-control" name="lname" id="lname" placeholder="Last name" required="required">
+
+		<div class="form-group">
+            <label>Gender :</label>
+			<div class="custom-control custom-radio custom-control-inline">
+  				<input type="radio" class="custom-control-input" id="gender1" name="gender" value="Male">
+  				<label class="custom-control-label" for="gender1">Male</label>
+			</div>
+			<div class="custom-control custom-radio custom-control-inline">
+  				<input type="radio" class="custom-control-input" id="gender2" name="gender" value="Female">
+  				<label class="custom-control-label" for="gender2">Female</label>
+			</div>
+		</div>
+
+            <label for="dob">Date Of Birth :</label>
+			<input type="date"  class="form-control" name="dob" id="dob" required="required">
+		<br><br>
+            <label for="addr">Address :</label>
+			<textarea  class="form-control" name="addr" id="addr" rows="4" cols="10"></textarea>
+		    <label for="pin">Pincode :</label>
+			<input type="text"  class="form-control" name="pin" id="pin" placeholder="Pincode" required="required">
+		<div class="form-group">
+            <label for="contact">Contact :</label>
+			<input type="tel"  class="form-control" name="contact" id="contact" required="required" placeholder="Enter contact" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}">
+		</div>
+		<div class="form-group">
+            <label for="email">Email :</label>
+			<input type="email"  class="form-control" name="email" id="email" required="required" placeholder="Enter email" size="32" minlength="3" maxlength="64" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 4}$">
+		</div>
+	    <div class="form-group">
+            <label for="profile_name">Profile Name :</label>
+			<input type="text"  class="form-control" name="profile_name" id="profile_name" placeholder="Enter profile name" required="required">
+		</div>
+		<div class="form-group">
+            <label for="password">Password :</label>
+			<input type="text"  class="form-control" name="password" id="password" required="required" placeholder="Enter password">
+		</div>
+		<button type="submit" class="btn btn-info" id="bt" name="bt">Register</button>
+        <button type="reset" class="btn btn-info" id="rt" name="rt">Reset</button>
+
+    </form>
+	{{msg}}
+</center>
+</body>
+<style>
+* {box-sizing: border-box}
+
+/* Add padding to containers */
+.container {
+  padding: 16px;
+}
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 50%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+input[type=date]
+{
+width: 50%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+input[type=textarea]
+{
+width: 20%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+input[type=tel]
+{
+width: 50%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+input[type=email]
+{
+width: 50%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Overwrite default styles of hr */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* Set a style for the submit/register button */
+.registerbtn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.registerbtn:hover {
+  opacity:1;
+}
+
+/* Add a blue text color to links */
+a {
+  color: dodgerblue;
+}
+
+/* Set a grey background color and center the text of the "sign in" section */
+.signin {
+  background-color: #f1f1f1;
+  text-align: center;
+}
+</style>
+</html>
+{% endblock %}

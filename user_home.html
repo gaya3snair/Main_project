@@ -1,0 +1,9 @@
+{% extends 'myapp/user_base.html' %}
+{% load static %}
+{% block title %}Hello User!!!{% endblock %}
+{% block background %}background="{% static './myapp/img/c10.jpg' %}"{% endblock %}
+{% block body %}
+<center>
+    <h1 class="text-white">Welcome User</h1>
+</center>
+{% endblock %}

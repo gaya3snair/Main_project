@@ -1,0 +1,117 @@
+{% extends 'myapp/base.html' %}
+
+{% load static %}
+{% block title %}
+Panda Cloud
+{% endblock %}
+{% block background %}background="{% static './myapp/images/cloud1.png' %}"{% endblock %}
+{% block body %}
+<center>
+    <!--<img src="{% static './myapp/images/college.jpg' %}" width="600" height="400"> -->
+      <div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container">
+          <a class="navbar-brand" href=" ">
+            <img src=" " alt="" />
+          </a>
+
+          <div class="navbar-collapse" id="">
+            <div class="custom_menu-btn">
+              <button onclick="openNav()">
+                <span class="s-1"> </span>
+                <span class="s-3"> </span>
+              </button>
+            </div>
+            <div id="myNav" class="overlay">
+              <div class="overlay-content">
+                <a href="">HOME</a>
+                <a href="{% url 'admin_login'%}">LOGIN</a>
+                <a href="">ABOUT</a>
+                <a href="">FEATURES</a>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+    <!-- slider section -->
+    <section class=" slider_section position-relative">
+      <div class="container-fluid">
+        <div class="row">
+          <div class=" col-md-5 offset-md-1">
+            <div class="detail-box">
+              <h1>
+                Sensitive <br />
+                Data Protection
+              </h1>
+              <p>
+                We help you protect your data.
+                Privacy is not something that is merely entitled to, it's an absolute prerequisite.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+              <div class="number_box">
+                <div>
+                  <span>
+                    01/
+                  </span>
+                </div>
+                <ol class="carousel-indicators">
+                  <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active">
+                    01
+                  </li>
+                  <li data-target="#carouselExampleIndicators" data-slide-to="1">
+                    02
+                  </li>
+                  <li data-target="#carouselExampleIndicators" data-slide-to="2">
+                    03
+                  </li>
+                  <li data-target="#carouselExampleIndicators" data-slide-to="3">
+                    04
+                  </li>
+                </ol>
+              </div>
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <div class="img-box">
+                    <img src="{% static './myapp/images/slider-img.png' %}" alt="" />
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="img-box">
+                    <img src="{% static './myapp/images/slider-img.png' %}" alt="" />
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="img-box">
+                    <img src="{% static './myapp/images/slider-img.png' %}" alt="" />
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="img-box">
+                    <img src="{% static './myapp/images/slider-img.png' %}" alt="" />
+                  </div>
+                </div>
+              </div>
+              <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- end slider section -->
+  </div>
+
+</center>
+{% endblock %}

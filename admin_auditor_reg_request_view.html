@@ -1,0 +1,64 @@
+{% extends 'myapp/admin_base.html' %}
+{% load static %}
+{% block title %}Auditor Details{% endblock %}
+{% block body %}
+<style>
+.tablecenterheadCSS th{
+	text-align:center;
+}
+.tablecenterheadCSS td{
+	text-align:center;
+}
+</style>
+
+<center>
+
+    <h1>Auditor Details</h1>
+    <div class="container">
+    <form role="form" name="frm" action="" method="post">
+        {% csrf_token %}
+        <div class="table-responsive-lg">
+        <table class="tablecenterheadCSS table table-hover table-bordered table-sm">
+            <thead class="thead-dark">
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Gender</th>
+                <th>Address</th>
+                <th>Contact</th>
+                <th>Email</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            {% for cm in auditor_list %}
+            <tbody>
+            <tr>
+                {%for a in ad%}
+                {%if cm.id == a.user_id %}
+                <td>{{ cm.id }}</td>
+                <td>{{ a.fname }} {{ a.lname }}</td>
+                <td>{{ a.gender}}</td>
+                <td>{{ a.addr}},{{ a.pin}}</td>
+                <td>{{ a.contact}}</td>
+                <td>{{ a.email}}</td>
+                <td>{{ cm.utype}}</td>
+                 {% endif %}
+                {% endfor %}
+                <td>
+                    <a class="btn btn-success" href="../admin_approve_reject_auditor?id={{cm.id}}&status=auditor">Approve</a>&nbsp;
+                    <a class="btn btn-danger" href=../admin_approve_reject_auditor?id={{cm.id}}&status=reject">Reject</a>
+                </td>
+            </tr>
+            <tbody>
+
+            {% endfor %}
+        </table>
+        </div>
+
+    </form>
+    </div>
+    <b>{{msg}}</b>
+</center>
+
+{% endblock %}

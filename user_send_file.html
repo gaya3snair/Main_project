@@ -1,0 +1,32 @@
+{% extends 'myapp/user_base.html' %}
+{% load static %}
+{% block title %}Share File to Auditor{% endblock %}
+{% block body %}
+<center>
+    <h1>Share File to Auditor</h1>
+    <div class="container">
+    <form name="frm" role="form" action="{% url 'user_send_file'%}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+       <div class="form-group" id="div3">
+                <label for="auditor_id">Auditor</label>
+                <select class="form-control" style="width:250px; "name="auditor_id" id="auditor_id" class="form-control" >
+                    <option value="0">Select Auditor</option>
+                    {%for a in auditor_list%}
+                    <option value="{{a.user_id}}">{{a.fname}} {{a.lname}}</option>
+                    {%endfor%}
+                </select>
+     </div>
+        <div class="form-group">
+            <label for="file_path">File:</label>
+            <input class="form-control" style="width:250px; " type="file" name="file_path" id="file_path" value="">
+        </div>
+
+        <button type="submit"
+        class="btn btn-info" id="bt" name="bt">Send</button>
+        <button type="reset"
+        class="btn btn-info" id="rt" name="rt">Reset</button>
+    </form>
+    </div>
+    <b>{{msg}}</b>
+</center>
+{% endblock %}

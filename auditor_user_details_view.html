@@ -1,0 +1,38 @@
+{% extends 'myapp/auditor_base.html' %}
+{% load static %}
+{% block title %}User Details{% endblock %}
+{% block body %}
+<center>
+    <br>
+    <br>
+    <br>
+    <h1>User Details</h1>
+    <div class="container">
+    <form role="form" name="frm" action="{% url 'auditor_user_details_view'%}" method="post">
+        {% csrf_token %}
+        <table class="table table-striped table-bordered">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            {% for ud in user_list %}
+            <tbody>
+            <tr>
+                <td>{{ ud.id }}</td>
+                <td>{{ ud.fname }} {{ ud.lname }}</td>
+                <td>
+                    <a href="../auditor_user_file_store_view?user_id={{ ud.id }}">Files</a>
+                </td>
+            </tr>
+            <tbody>
+            {% endfor %}
+        </table>
+
+    </form>
+    </div>
+    <b>{{msg}}</b>
+</center>
+{% endblock %}

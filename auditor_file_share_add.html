@@ -1,0 +1,13 @@
+{% extends 'myapp/auditor_base.html' %}
+{% load static %}
+{% block title %}File audit request!!!{% endblock %}
+{% block background %}{% endblock %}
+{% block body %}
+<center>
+    <h1 class="text-white">File audit request</h1>
+    {%if msg%}
+    <script>alert("{{msg}}")</script>
+    {%endif%}
+    <b>{{msg}}</b>
+</center>
+{% endblock %}

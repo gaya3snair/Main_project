@@ -1,0 +1,21 @@
+{% extends 'myapp/auditor_base.html' %}
+{% load static %}
+{% block title %}File Replace{% endblock %}
+{% block body %}
+<center>
+    <h1>File Replace</h1>
+     <div class="container">
+    <form role="form" name="frm" action="{% url 'auditor_file_store_update'%}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="document">File :</label>
+            <input class="form-control" type="file" name="document" id="document">
+        </div>
+        <input class="form-control" type="hidden" name="file_id" id="file_id" value="{{file_id}}">
+       <button type="submit" class="btn btn-info" id="bt" name="bt">Replace</button>
+        <button type="reset" class="btn btn-info" id="rt" name="rt">Clear</button>
+    </form>
+     </div>
+    <b>{{msg}}</b>
+</center>
+{% endblock %}

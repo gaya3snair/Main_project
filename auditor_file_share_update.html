@@ -1,0 +1,22 @@
+{% extends 'myapp/auditor_base.html' %}
+{% load static %}
+{% block title %}Auditor Change Password{% endblock %}
+{% block body %}
+<center>
+    <h1>Auditor Change Password</h1>
+    <div class="container">
+    <form name="frm" role="form" action="{% url 'auditor_file_share_update'%}" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="remark">Remark:</label>
+            <input class="form-control" type="text" name="remark" id="remark" value="">
+        </div>
+        <input class="form-control" type="hidden" name="file_id" id="file_id" value="{{file_id}}">
+
+        <button type="submit" class="btn btn-info" id="bt" name="bt">Post</button>
+        <button type="reset" class="btn btn-info" id="rt" name="rt">Reset</button>
+    </form>
+    </div>
+    <b>{{msg}}</b>
+</center>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'myapp/user_base.html' %}
+{% load static %}
+{% block title %}Hello Admin!!!{% endblock %}
+{% block background %}{% endblock %}
+{% block body %}
+<center><br><br><br><br>
+    <form name="frm" action="{% url 'user_audit_request_add' %}" method="post">
+         {% csrf_token %}
+    <div class="form-group" id="div3">
+                <label for="auditor_id">Auditor</label>
+                <select class="form-control" name="auditor_id" id="auditor_id" class="form-control" >
+                    <option value="0">Select Auditor</option>
+                    {%for a in auditor_list%}
+                    <option value="{{a.user_id}}">{{a.fname}} {{a.lname}}</option>
+                    {%endfor%}
+                </select>
+     </div>
+        {{msg}}
+        <input type="hidden" name="file_id" value="{{file_id}}">
+    <button type="submit" class="btn btn-info" id="bt" name="bt">Submit</button>
+   </form>
+</center>
+<
+{% endblock %}

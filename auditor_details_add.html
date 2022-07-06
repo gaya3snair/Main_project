@@ -1,0 +1,59 @@
+{% extends 'myapp/base.html' %}
+{% load static %}
+{% block title %}New Auditor Registration{% endblock %}
+{% block body %}
+<body>
+
+<center>
+
+    <h1>New Auditor</h1>
+	 <div class="container">
+    <form name="frm" action="{% url 'auditor_details_add' %}" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="fname">User Name :</label>
+			<input type="text"  class="form-control" name="fname" id="fname" placeholder="First name" required="required">
+			<input type="text"  class="form-control" name="lname" id="lname" placeholder="Last name" required="required">
+		</div>
+		<div class="form-group">
+            <label>Gender :</label>
+			<div class="custom-control custom-radio custom-control-inline">
+  				<input type="radio" class="custom-control-input" id="gender1" name="gender" value="Male">
+  				<label class="custom-control-label" for="gender1">Male</label>
+			</div>
+			<div class="custom-control custom-radio custom-control-inline">
+  				<input type="radio" class="custom-control-input" id="gender2" name="gender" value="Female">
+  				<label class="custom-control-label" for="gender2">Female</label>
+			</div>
+		</div>
+		<div class="form-group">
+            <label for="addr">Address :</label>
+			<textarea  class="form-control" name="addr" id="addr"></textarea>
+			<input type="text"  class="form-control" name="pin" id="pin" placeholder="Pincode" required="required">
+		</div>
+		<div class="form-group">
+            <label for="contact">Contact :</label>
+			<input type="text"  class="form-control" name="contact" id="contact" required="required" placeholder="Enter contact">
+		</div>
+		<div class="form-group">
+            <label for="email">Email :</label>
+			<input type="email"  class="form-control" name="email" id="email" required="required" placeholder="Enter email">
+		</div>
+	    <div class="form-group">
+            <label for="profile_name">Profile Name :</label>
+			<input type="text"  class="form-control" name="profile_name" id="profile_name" placeholder="Enter profile name" required="required">
+		</div>
+		<div class="form-group">
+            <label for="password">Password :</label>
+			<input type="text"  class="form-control" name="password" id="password" required="required" placeholder="Enter password">
+		</div>
+		<button type="submit" class="btn btn-info" id="bt" name="bt">Register</button>
+        <button type="reset" class="btn btn-info" id="rt" name="rt">Reset</button>
+
+    </form>
+
+	 </div>
+	{{msg}}
+</center>
+</body>
+{% endblock %}
